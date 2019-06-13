@@ -1,7 +1,11 @@
 package com.joydikshit.duplicateparser.service;
 
-public interface ParseService {
-    void parseDuplicates(String filename);
+import com.joydikshit.duplicateparser.businessobjects.Person;
 
-    void parseNonDuplicates(String filename);
+import java.util.List;
+
+public interface ParseService {
+    List<Person> parseDuplicates(String filename);
+
+    List<Person> parseNonDuplicates(String filename);
 }
