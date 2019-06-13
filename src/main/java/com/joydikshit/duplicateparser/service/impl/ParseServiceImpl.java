@@ -2,6 +2,7 @@ package com.joydikshit.duplicateparser.service.impl;
 
 import com.joydikshit.duplicateparser.businessobjects.Person;
 import com.joydikshit.duplicateparser.service.ParseService;
+import com.joydikshit.duplicateparser.util.DuplicateParserHelper;
 import com.opencsv.CSVReader;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
@@ -27,24 +28,29 @@ public class ParseServiceImpl implements ParseService {
 
     @Override
     public List<Person> parseDuplicates(String filename) {
-        //Let's test that the parsing has worked with OpenCSV and records exist
-        for(Person person : normalPersonList) {
-            System.out.println(person);
+        //TODO: Use Log4J or other logging framework, Never Syslog, just used here for demo
+        System.out.println("Parsing duplicates for file " + filename + ".csv");
+        if (filename.equals(NORMALCSV)) {
+            return DuplicateParserHelper.extractDuplicates(normalPersonList);
+        } else if (filename.equals(ADVANCEDCSV)) {
+            return DuplicateParserHelper.extractDuplicates(advancedPersonList);
         }
-        for(Person person : advancedPersonList) {
-            System.out.println(person);
-        }
-
         return null;
     }
 
     @Override
     public List<Person> parseNonDuplicates(String filename) {
-
+        //TODO: Use Log4J or other logging framework, Never Syslog, just used here for demo
+        System.out.println("Parsing non-duplicates for file " + filename + ".csv");
+        if (filename.equals(NORMALCSV)) {
+            return DuplicateParserHelper.extractNonDuplicates(normalPersonList);
+        } else if (filename.equals(ADVANCEDCSV)) {
+            return DuplicateParserHelper.extractNonDuplicates(advancedPersonList);
+        }
         return null;
     }
 
-    //TODO: Use caching or less preferably use versus using @PostConstruct annotation
+    //TODO: Use caching or less preferably a global object versus using @PostConstruct annotation
     @PostConstruct
     private void readCSV() {
         //read normal.csv
