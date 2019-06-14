@@ -14,6 +14,9 @@ localhost:8080/nonduplicates/normal (for normal.csv)
 and 
 localhost:8080/nonduplicates/advanced (for advanced.csv)
 
+The only pre-requisites are you need to have Java 8 on your machine (I have version 1.8.0_191 of the jdk) and you need a modern browser or PostMan to view the results (although you could use the curl command and view it on a Unix Terminal).
+You also need Maven installed the instructions for it's installation are described below.
+
 Steps
 
 1. Clone the git repo at https://github.com/joydikshit/duplicateparser.git
@@ -22,6 +25,7 @@ Steps
    NOTE: Homebrew can be installed by pasting the following in your Terminal
    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 3. After Maven is installed, check that it is installed correctly by typing: mvn --version
+   I have built this using version 3.3.9 for your reference
 4. After that at the root of the project type: mvn package
 5. After that simply type: mvn spring-boot:run
 6. This should bring up the Spring Boot application and should start listening on localhost:8080 assuming the port is available
