@@ -16,7 +16,7 @@ localhost:8080/nonduplicates/advanced (for advanced.csv)
 
 Steps
 
-1. Clone the repo.
+1. Clone the git repo at https://github.com/joydikshit/duplicateparser.git
 2. Make sure Maven is installed on your work station. If you are using Mac and have homebrew installed then simply type
    in brew install maven on your Terminal program. For Windows please look at the following link (https://www.mkyong.com/maven/how-to-install-maven-in-windows/)  
    NOTE: Homebrew can be installed by pasting the following in your Terminal
