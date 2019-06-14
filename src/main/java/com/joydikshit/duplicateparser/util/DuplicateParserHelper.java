@@ -31,9 +31,21 @@ public class DuplicateParserHelper {
     }
 
     public static List<Person> extractNonDuplicates(List<Person> allRecords) {
-        List<Person> nonDuplicates = new ArrayList<>();
+        List<Person> duplicates = new ArrayList<>();
 
-        return nonDuplicates;
+        buildDuplicateSet(allRecords);
+
+        //email map is populated, from therein extract the duplicates
+        for (String email : emailMap.keySet()) {
+            if (emailMap.get(email).size() == 1) {
+                duplicates.addAll(emailMap.get(email));
+            }
+        }
+
+        emailMap.clear();
+        phoneMap.clear();
+
+        return duplicates;
     }
 
     private static void buildDuplicateSet(List<Person> allrecords) {
