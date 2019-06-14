@@ -24,6 +24,9 @@ public class DuplicateParserHelper {
             }
         }
 
+        emailMap.clear();
+        phoneMap.clear();
+
         return duplicates;
     }
 
